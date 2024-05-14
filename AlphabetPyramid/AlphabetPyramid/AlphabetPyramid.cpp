@@ -41,12 +41,28 @@ void DrawDiamond(int heigh, int space)
     DrawDiamond(heigh - 1, space - 1);
 }
 
+void Input()
+{
+    cout << "Insert height of the diamond: ";
+    
+    int height = 0;
+    cin >> height;
+
+    if(height < 0 || height > 26)
+    {
+        cout << "Insert a valid number between 1-26" << endl;
+
+        Input();
+
+        return;
+    }
+    
+    DrawDiamond(height, height);
+}
+
 int main(int argc, char* argv[])
 {
-    int heigh = 0;
-    cin >> heigh;
-    
-    DrawDiamond(heigh, heigh);
+    Input();
     
     return 0;
 }
